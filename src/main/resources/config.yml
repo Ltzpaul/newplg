@@ -1,0 +1,228 @@
+# Haven SMP - LTZCore settings
+security:
+  owner-name: "Ltzpaul_"
+
+authentication:
+  timeout-seconds: 120
+
+lifesteal:
+  starting-hearts: 10
+  maximum-hearts: 20
+  hearts-per-kill: 1
+  hearts-lost: 1
+  revive-hearts: 5
+  duration-seconds: 0
+  heart-shop-cost: 5000
+  bounty-minimum: 100
+  rewards:
+    first: 10000
+    second: 5000
+    third: 2500
+    participation: 250
+
+scoreboard:
+  enabled: true
+  update-interval-ticks: 20
+
+rewards:
+  daily-money: 100
+  daily-streak-bonus: 20
+  playtime-money: 500
+  playtime-minutes: 60
+
+# RTP only loads chunks that have already been generated. Pregenerate this radius for reliable 5-second RTP.
+rtp:
+  radius: 1500
+  min-distance: 300
+  max-attempts: 80
+  cooldown-seconds: 30
+  search-window-seconds: 5
+  countdown-seconds: 5
+  generate-chunks: false # Intentionally false: /rtp must not trigger terrain generation.
+
+combat-log:
+  enabled: true
+  tag-seconds: 20
+  drop-inventory-on-quit: true
+
+messages:
+  prefix: '&6Haven SMP &8» '
+
+# Rank + / ++ / +++ earn one shard for each full online minute after login.
+# Shard balance and countdown are now displayed on the Scoreboard instead of the Action Bar.
+shards:
+  enabled: true
+  check-interval-ticks: 20
+  reward-per-interval: 1
+  actionbar:
+    enabled: false
+
+# Expanded 54-slot Ender Chest (DonutSMP style) via /ec or right-clicking an Ender Chest block.
+enderchest:
+  enabled: true
+  intercept-block: true
+  block-in-combat: true
+  rows-by-rank:
+    member: 6
+    plus: 6
+    double-plus: 6
+    triple-plus: 6
+    admin: 6
+    owner: 6
+
+# Haven Teams (/team) settings
+teams:
+  max-members: 10
+
+# /setting preferences (KingSMP & DonutSMP style)
+settings:
+  mob-spawn-radius: 64 # Blocks around a player who disabled hostile mob spawning
+
+# In-game rank prices. All three purchasable ranks use Haven economy dollars.
+rank-shop:
+  prices:
+    plus: 50000
+    double-plus: 100000
+    triple-plus: 500000
+
+# Classic DonutSMP /shop unit prices (End, Nether, Gear, Food + Shard Shop).
+shop:
+  price-profile: 6
+  prices:
+    # End
+    ender_chest: 2500
+    ender_pearl: 75
+    end_stone: 16
+    dragon_breath: 1000
+    end_rod: 100
+    chorus_fruit: 108
+    popped_chorus_fruit: 24
+    shulker_shell: 350
+    shulker_box: 800
+    # Nether
+    blaze_rod: 150
+    nether_wart: 96
+    glowstone_dust: 15
+    magma_cream: 96
+    ghast_tear: 350
+    quartz: 30
+    soul_sand: 50
+    magma_block: 35
+    crying_obsidian: 150
+    # Gear
+    obsidian: 100
+    end_crystal: 250
+    respawn_anchor: 500
+    glowstone: 100
+    totem_of_undying: 1500
+    golden_apple: 250
+    experience_bottle: 100
+    arrow_of_slow_falling: 500
+    # Food
+    potato: 96
+    sweet_berries: 50
+    melon_slice: 36
+    carrot: 96
+    apple: 25
+    cooked_chicken: 48
+    cooked_beef: 35
+    golden_carrot: 120
+
+# Sell GUI prices are per item. /sell deposits items into a GUI; SELL ALL sells supported materials.
+sell:
+  # Price per item in in-game dollars. Unlisted materials cannot be sold through the Sell GUI.
+  prices:
+    cobblestone: 1
+    stone: 1
+    deepslate: 1
+    dirt: 1
+    sand: 1
+    gravel: 1
+    netherrack: 1
+    andesite: 1
+    diorite: 1
+    granite: 1
+    coal: 5
+    charcoal: 4
+    raw_iron: 6
+    iron_ingot: 10
+    raw_gold: 8
+    gold_ingot: 15
+    copper_ingot: 4
+    raw_copper: 3
+    diamond: 40
+    emerald: 30
+    lapis_lazuli: 2
+    redstone: 1
+    quartz: 4
+    glowstone_dust: 2
+    rotten_flesh: 1
+    bone: 2
+    arrow: 1
+    string: 2
+    spider_eye: 3
+    gunpowder: 4
+    blaze_rod: 12
+    ender_pearl: 8
+    leather: 3
+    beef: 2
+    porkchop: 2
+    chicken: 2
+    mutton: 2
+    wheat: 2
+    carrot: 2
+    potato: 2
+    sugar_cane: 2
+    cactus: 2
+    pumpkin: 3
+    melon_slice: 1
+    egg: 1
+    sugar: 1
+
+# Haven 0.5 marketplace - listings are in-game currency only.
+market:
+  auction-duration-hours: 168
+  order-duration-hours: 72
+
+# Haven gathering tools, purchased with shard from /shop.
+haven-tools:
+  prices-shards:
+    pickaxe3x3: 2500
+    shovel3x3: 2000
+    chopper: 3000
+  chopper:
+    max-logs: 96
+
+# Custom stacked mob spawners. Loot is stored virtually and collected from the GUI.
+spawners:
+  enabled: true
+  require-silk-touch: true
+  access-mode: PUBLIC # Public raidable spawners
+  base-spawn-count: 4
+  max-stack: 258
+  price-shards-per-spawner: 800
+  sell-prices:
+    rotten_flesh: 1
+    bone: 2
+    arrow: 1
+    string: 2
+    spider_eye: 3
+    gunpowder: 4
+    blaze_rod: 12
+    beef: 2
+    leather: 3
+    iron_ingot: 20
+  max-storage-per-material: 4096
+  max-stored-xp: 100000
+  production:
+    interval-ticks: 600 # 30 seconds
+    activation-range: 32 # only produce when a player is nearby
+    xp-per-mob: 5
+    max-per-cycle: 100 # cap DB work per shared cycle for a 4GB host
+  # Managed Haven spawners cancel real spawns and store virtual drops/XP instead.
+  # The shared production task checks only already-loaded chunks; no chunks are force-loaded.
+
+# Spawn protection applies to the full vertical column inside the selected X/Z cuboid.
+spawn-region:
+  protect-full-height: true
+  allow-staff-drop: false

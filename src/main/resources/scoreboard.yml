@@ -1,0 +1,17 @@
+enabled: true
+update-interval-ticks: 20
+title: '&6&lHAVEN SMP'
+lines:
+  - '&8 '
+  - '&6▪ &7Player: &f%player%'
+  - '&6▪ &7Rank: %rank%'
+  - '&6▪ &7Team: %team%'
+  - '&8  '
+  - '&a$ &7Money: &a$%balance_compact%'
+  - '&d✦ &7Shards: &d%shards_compact%'
+  - '&b▪ &7Playtime: &f%playtime%'
+  - '&8   '
+  - '&e▪ &7Online: &f%online%'
+  - '&e▪ &7World: &f%world%'
+  - '&c❤ &7LifeSteal: &f%lifesteal%'
+  - '&8Haven SMP • Survival'

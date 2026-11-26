@@ -1,0 +1,248 @@
+name: LTZCore
+version: 0.5.15-Haven
+main: vn.ltzcore.LTZCorePlugin
+api-version: '1.21'
+author: LTZpaul_
+description: Haven SMP core with authentication, economy, spawn cuboid protection, stacked spawners and player markets.
+libraries:
+  - org.xerial:sqlite-jdbc:3.54.1.0
+commands:
+  register:
+    description: Register a new Haven offline account
+    usage: /register <password> <confirm>
+    aliases: [reg, ltzregister]
+  login:
+    description: Login to your Haven offline account
+    usage: /login <password>
+    aliases: [l, ltzlogin]
+  havenregister:
+    description: Fallback registration command if /register is used by another plugin
+    usage: /havenregister <password> <confirm>
+  havenlogin:
+    description: Fallback login command if /login is used by another plugin
+    usage: /havenlogin <password>
+  logout:
+    description: Logout from your account
+  changepassword:
+    description: Change your account password
+    usage: /changepassword <old> <new>
+  resetpassword:
+    description: Reset a player's password
+    usage: /resetpassword <player> <new>
+    permission: ltzcore.admin
+  menu:
+    description: Open the Haven SMP main menu
+  dn:
+    description: Open the Haven SMP main menu
+  lifesteal:
+    description: View the LifeSteal event
+  bal:
+    description: View your balance
+    aliases: [balance]
+  balance:
+    description: View your balance
+  pay:
+    description: Pay another player
+    usage: /pay <player> <amount>
+  baltop:
+    description: View the richest players
+  shop:
+    description: "Open classic DonutSMP shop: End, Nether, Gear, Food and Shard Shop"
+  sell:
+    description: Open the Haven Sell GUI; use /sell hand to sell your held item
+    usage: /sell [hand]
+  rank:
+    description: View rank or use staff rank management
+  sethome:
+    description: Open the home-slot GUI, or set a named home
+  home:
+    description: Open the home selector, or teleport to a named home
+  homes:
+    description: Open your home selector
+  delhome:
+    description: Delete a home
+  tpa:
+    description: Request to teleport to a player
+  tpahere:
+    description: Request a player to teleport to your location
+    usage: /tpahere <player>
+  tpaccept:
+    description: Accept a teleport request
+  tpdeny:
+    description: Deny a teleport request
+  spawn:
+    description: Teleport to spawn
+  setspawn:
+    description: Set the server spawn
+    permission: ltzcore.admin
+  rtp:
+    description: Random safe teleport
+  warp:
+    description: Teleport to a warp
+  setwarp:
+    description: Create a warp
+    permission: ltzcore.admin
+  delwarp:
+    description: Delete a warp
+    permission: ltzcore.admin
+  code:
+    description: Create or delete redeem codes
+    permission: ltzcore.admin
+  redeem:
+    description: Redeem a code
+  daily:
+    description: Claim your daily reward
+  playtime:
+    description: View your playtime
+  playreward:
+    description: Claim rewards for playtime milestones
+  streak:
+    description: View your daily login streak
+  shard:
+    description: View shard balance or admin give shards
+    usage: /shard [give <player> <amount>]
+  giveshard:
+    description: Give shards to a player (staff only)
+    usage: /giveshard <player> <amount>
+    permission: ltzcore.admin
+  shardtop:
+    description: Top shard holders
+  shardshop:
+    description: Open the Haven shard exchange
+  heartshop:
+    description: Open the LifeSteal heart shop
+  bounty:
+    description: Place a bounty on a player
+    usage: /bounty <player> <amount>
+  bounties:
+    description: View active bounty leaderboard or a player's bounty
+  spawnregion:
+    description: Select and protect the Haven spawn cuboid
+    usage: /spawnregion pos1|pos2|save|clear|info
+    permission: ltzcore.admin
+  region:
+    description: Create and manage the protected Haven spawn cuboid
+    usage: /region pos1|pos2|create|info|clear
+    permission: ltzcore.admin
+  ban:
+    description: Ban a player through LTZCore
+    usage: /ban <player> <duration|perm> <reason>
+    permission: ltzcore.staff
+  unban:
+    description: Remove an LTZCore ban
+    permission: ltzcore.staff
+  mute:
+    description: Mute a player through LTZCore
+    usage: /mute <player> <duration|perm> <reason>
+    permission: ltzcore.staff
+  unmute:
+    description: Remove an LTZCore mute
+    permission: ltzcore.staff
+  freeze:
+    description: Toggle player movement freeze
+    permission: ltzcore.staff
+  vanish:
+    description: Toggle vanish for self or a player
+    permission: ltzcore.staff
+  giveitem:
+    description: Give a material to a player
+    usage: /giveitem <player> <material> <amount>
+    permission: ltzcore.admin
+  playerinfo:
+    description: View a player's Haven profile
+    usage: /playerinfo <player>
+    permission: ltzcore.staff
+  spawner:
+    description: Haven stacked mob spawners and spawner market
+    usage: /spawner [shop|info|give <player> <mob> [amount]]
+  ah:
+    description: Haven player Auction House
+    usage: /ah [mine|sell <price>|cancel <id>]
+  orders:
+    description: Browse player buy orders
+  order:
+    description: Browse, create, cancel or claim Haven player buy orders
+    usage: /order [gui|create [MATERIAL amount priceEach]|cancel <id>|claim]
+  tool:
+    description: Give Haven 3x3 mining tools
+    usage: /tool give <player> <pickaxe3x3|shovel3x3|chopper>
+    permission: ltzcore.admin
+  setting:
+    description: Open player settings menu (mob spawn, TPA, pay, scoreboard, chat, death coords, sounds)
+    aliases: [settings, caidat]
+  stats:
+    description: View your statistics or another player's statistics
+    usage: /stats [player]
+    aliases: [stat, thongke]
+  spec:
+    description: Toggle Spectator mode (Staff/Admin)
+    aliases: [gmsp]
+    permission: ltzcore.staff
+  gms:
+    description: Switch back to Survival mode (Staff/Admin)
+    permission: ltzcore.staff
+  gamemode:
+    description: Change gamemode (Staff: spectator/survival; Admin: all)
+    usage: /gamemode <mode> [player]
+    aliases: [gm]
+    permission: ltzcore.staff
+  tp:
+    description: Teleport to a player (Staff/Admin)
+    usage: /tp <player> [target]
+    permission: ltzcore.staff
+  kick:
+    description: Kick a player from the server (Staff/Admin)
+    usage: /kick <player> [reason]
+    permission: ltzcore.staff
+  invsee:
+    description: Inspect a player's inventory (Staff/Admin)
+    usage: /invsee <player>
+    permission: ltzcore.staff
+  staffchat:
+    description: Send a private message to online Staff/Admin/Owner
+    usage: /staffchat <message>
+    aliases: [sc]
+    permission: ltzcore.staff
+  team:
+    description: Open Haven Team GUI or manage your team
+    usage: /team [create|invite|accept|deny|leave|kick|promote|demote|home|sethome|pvp|chat|list|info|disband]
+    aliases: [teams]
+  tc:
+    description: Send a message to team chat or toggle team chat mode
+    usage: /tc [message]
+    aliases: [teamchat]
+  baitbase:
+    description: Spawn a Wizox-style mini bait base (1 random spawner, 1 cake, 1 amethyst) to catch cheaters
+    usage: /baitbase [undo|clear]
+    aliases: [fakebase, trapbase, wizoxbase]
+    permission: ltzcore.staff
+  addstaff:
+    description: Quickly grant the Staff rank to a player (Admin/Owner)
+    usage: /addstaff <player>
+    aliases: [setstaff]
+    permission: ltzcore.admin
+  removestaff:
+    description: Remove Staff rank from a player back to Member (Admin/Owner)
+    usage: /removestaff <player>
+    aliases: [delstaff]
+    permission: ltzcore.admin
+  ec:
+    description: Open expanded 54-slot DonutSMP-style Ender Chest
+    usage: /ec [player]
+    aliases: [echest, enderchest]
+  ltzcore:
+    description: Haven SMP administration (staff only)
+    permission: ltzcore.admin
+permissions:
+  ltzcore.staff:
+    description: Staff moderation & spectator access assigned to Staff, Admin and Owner ranks
+    default: false
+  ltzcore.admin:
+    description: Administrative access assigned to authenticated Haven SMP staff ranks
+    default: false
+  ltzcore.lifesteal.admin:
+    description: LifeSteal management access assigned to authenticated Haven SMP staff ranks
+    default: false
+  ltzcore.home.multiple:
+    description: Extra home permission (home rank limits still apply)
+    default: false
