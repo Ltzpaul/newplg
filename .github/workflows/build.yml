@@ -1,0 +1,41 @@
+name: Build LTZCore
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+      - name: Set up Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.14.3'
+      - name: Build and test
+        run: gradle clean test build
+      - name: Test compact money parser
+        run: |
+          mkdir -p build/money-test
+          javac --release 21 -encoding UTF-8 -cp build/classes/java/main -d build/money-test tools/tests/MoneyFormatSelfTest.java
+          java -cp build/classes/java/main:build/money-test MoneyFormatSelfTest
+      - name: Upload plugin JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: LTZCore-0.5.15-Haven
+          path: build/libs/LTZCore-0.5.15-Haven.jar
+          if-no-files-found: error
+      - name: Test shard countdown
+        run: |
+          mkdir -p build/shard-test
+          javac --release 21 -encoding UTF-8 -cp build/classes/java/main -d build/shard-test tools/tests/ShardCountdownSelfTest.java
+          java -cp build/classes/java/main:build/shard-test ShardCountdownSelfTest
