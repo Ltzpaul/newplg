@@ -1898,8 +1898,7 @@ private void baltop(CommandSender sender){send(sender,"§6§lTOP BALANCE");int i
             }
         } catch (Exception ignored) { }
         String reason = args.length >= 2 ? String.join(" ", Arrays.copyOfRange(args, 1, args.length)) : "Vi phạm nội quy Haven SMP";
-        Reflect.call(target, "kickPlayer", "§cBạn đã bị kick khỏi Haven SMP
-§7Lý do: §f" + reason);
+Reflect.call(target, "kickPlayer", "§cBạn đã bị kick khỏi Haven SMP\n§7Lý do: §f" + reason);
         broadcast("§3[Staff] §f" + name(target) + " §7đã bị kick bởi §f" + (isPlayer(sender) ? name(sender) : "CONSOLE") + " §8(§f" + reason + "§8)");
     }
 
